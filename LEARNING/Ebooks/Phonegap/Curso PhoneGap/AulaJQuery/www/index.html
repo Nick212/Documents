@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curso PhoneGap</title>
+<meta name="viewport" content="width=device-widtsh, initial-scale=1">
+<link rel="nofollow" href="jquery/jquery.mobile-1.4.5.css">
+<script src="jquery/jquery.js"></script>
+<script src="jquery/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+
+}
+</script>
+</head>
+<body>
+
+<div data-role="page" id="paginaPrincipal">
+	<div data-role="main" class="ui-content">
+	<h1>Tela Principal do aplicativo</h1>
+	<a href="#paginaDados" data-transation="fade">Inserir Dados</a>
+	<a href="#paginaInfo" data-transation="fade">Informações</a>
+	</div>
+</div>
+<div data-role="page" id="paginaDados">
+	<div data-role="main" class="ui-content">
+	<h1>Tela de dados</h1>
+	<a href="#paginaPrincipal">Retornar ao menu</a>
+	</div>
+</div>
+<div data-role="page" id="paginaInfo">
+	<div data-role="main" class="ui-content">
+	<h1>Tela de informações</h1>
+	<a href="#paginaPrincipal">Retornar ao menu</a>
+	</div>
+</div>
+
+</body>
+</html>
+

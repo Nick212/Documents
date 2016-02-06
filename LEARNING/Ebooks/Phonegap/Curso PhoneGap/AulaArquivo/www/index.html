@@ -1,0 +1,38 @@
+<html>
+<body>
+<img id="pacman" src="http://icons.iconarchive.com/icons/mad-science/arcade-saturdays/32/Pac-Man-icon.png" width="32" height="32">
+<canvas id="mc" width="640" height="480">
+</canvas>
+
+<script>
+	
+	document.onkeydown = function(k){
+		
+	};
+	
+	var BAR_WIDTH = 30;
+	var BAR_HEIGHT = 150;
+	var x=5;
+	var y=(480-BAR_HEIGHT)/2;
+	
+	var bx=(640-60)/2;
+	var by=(480-60)/2;
+	
+	var _canvas = document.getElementById('mc');
+	var _ctx = _canvas.getContext('2d');
+	_ctx.fillStyle = '#000000';
+	_ctx.fillRect(0,0,640,480);
+	
+	_ctx.fillStyle = '#00FF00';
+	_ctx.fillRect(x,y,BAR_WIDTH,BAR_HEIGHT);
+	
+	_ctx.fillStyle = '#00FFFF';
+	_ctx.beginPath();
+	_ctx.arc(bx,by,60,0,2*3.14);
+	_ctx.stroke();
+	
+	
+</script>
+
+</body>
+</html>

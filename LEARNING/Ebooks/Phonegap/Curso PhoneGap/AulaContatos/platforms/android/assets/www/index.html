@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curso PhoneGap</title>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	
+	var nomeContato = new ContactName();
+	nomeContato.honorificSuffix = "Dr";
+	nomeContato.givenName = "Ronaldo";
+	nomeContato.familyName = "Santos";
+	nomeContato.middleName = "Pereira"
+	
+	var numerosContato = [];
+	numerosContato[0] = new ContactField('Casa', '(31)3333-6666',false);
+	numerosContato[1] = new ContactField('Celular', '(31)9999-5555', true);
+	
+	//Cria instancia do objeto contato
+	var novoContato = navigator.contacts.create(
+	{"displayName":"Ronaldo","name":nomeContato,"phoneNumbers":numerosContato});
+	
+	//Salva o contato
+	novoContato.save();
+	
+	//Duplica o contato
+	var contatoDuplicado = novoContato.clone();
+	contatoDuplicado.name.familyName = "Souza";
+	
+	//Deletar Contatos
+	novoContato.remove();
+
+	//Buscar contatos na lista
+	var filterOption = new ContactFindOptions();
+	filterOptions.filter = "Ronaldo";
+	navigator.contacts.find(["displayName"], buscaSucesso, contatoErro, filterOption);
+}
+
+//Retorna os contatos da busca
+function buscaSucesso(contatos)
+{
+	var nomes = "Contatos encontrados:\n";
+	for (var count=0; count<contatos.length; count++)
+	{
+		nomes = nomes + "Nome: " + contatos[count].displayName + "\n";
+	}
+	
+	alert(nomes);
+}
+
+function contatoRemovido()
+{alert("Contato removido com sucesso")}
+
+function contatoErro(erro)
+{alert("Erro: "+erro.message)}
+
+</script>
+</head>
+<body>
+<h1>Aula Contatos</h1>
+</body>
+</html>
